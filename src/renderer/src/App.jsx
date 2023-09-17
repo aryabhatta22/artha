@@ -1,3 +1,5 @@
+import "./index.css";
+import "./theme/theme.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import User from "./features/user/User";
@@ -6,11 +8,16 @@ import MonthlyPlan from "./features/plan/MonthlyPlan";
 import Account from "./features/account/Account";
 import AnnualSummary from "./features/stats/AnnualSummary";
 import Graph from "./features/stats/Graph";
-import styles from "./App.module.css";
+import HomePage from "./ui/HomePage";
+
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <HomePage />,
+    },
+    {
+      path: "/app",
       element: <AppLayout />,
       errorElement: <Error />,
       children: [
