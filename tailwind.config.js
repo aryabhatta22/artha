@@ -4,7 +4,11 @@ export default {
     "./src/renderer/index.html",
     "./src/renderer/src/**/*.{js,ts,jsx,tsx}",
   ],
+
   theme: {
+    fontFamily: {
+      core: "Nunito Sans, monospace",
+    },
     extend: {
       colors: {
         primary1: "#27374D",

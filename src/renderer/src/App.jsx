@@ -15,6 +15,7 @@ const App = () => {
     {
       path: "/",
       element: <HomePage />,
+      errorElement: <Error />,
     },
     {
       path: "/app",

@@ -4,6 +4,7 @@ import { Button } from "primereact/button";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import { Link } from "react-router-dom";
 
 const username = faker.person.fullName();
 
@@ -32,11 +33,12 @@ const HomePage = () => {
           </Button>
         </div>
       </div>
-
-      <span className="float-right mr-28 inline-flex space-x-2 py-7 text-primary4">
-        <EditOutlinedIcon />
-        <p>Edit Profile</p>
-      </span>
+      <Link to="/app/user">
+        <span className="float-right mr-28 inline-flex space-x-2 py-7 text-primary4">
+          <EditOutlinedIcon />
+          <p>Edit Profile</p>
+        </span>
+      </Link>
     </div>
   );
 };

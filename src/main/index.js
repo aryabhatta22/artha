@@ -9,6 +9,8 @@ function createWindow() {
     height: 670,
     show: false,
     autoHideMenuBar: true,
+    // TODO: Hide the title bar and create custom close buttons
+    // titleBarStyle: "hidden",
     ...(process.platform === "linux" ? {} : {}),
     webPreferences: {
       preload: join(__dirname, "../preload/index.js"),
