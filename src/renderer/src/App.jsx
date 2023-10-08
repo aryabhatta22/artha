@@ -1,5 +1,3 @@
-import "./index.css";
-import "./theme/theme.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import User from "./features/user/User";
@@ -9,6 +7,7 @@ import Account from "./features/account/Account";
 import AnnualSummary from "./features/stats/AnnualSummary";
 import Graph from "./features/stats/Graph";
 import HomePage from "./ui/HomePage";
+import GlobalStyles from "./styles/GlobalStyle";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -48,6 +47,7 @@ const App = () => {
 
   return (
     <div>
+      <GlobalStyles />
       <RouterProvider router={router} />
     </div>
   );
