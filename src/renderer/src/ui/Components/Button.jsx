@@ -44,9 +44,9 @@ const Span = styled.span`
   }
 `;
 
-const Button = ({ children, type = "light" }) => {
+const Button = ({ children, type = "light", onClick = "" }) => {
   return (
-    <ButtonWrapper type={type}>
+    <ButtonWrapper type={type} onClick={() => onClick()}>
       <Span>{children}</Span>
     </ButtonWrapper>
   );

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 const NavBarWrapper = styled.nav`
-  height: auto;
+  height: 10%;
   width: 100%;
   flex: 0 1 auto;
-  background-color: var(--color-primary-1);
+  background-color: var(--color-primary-0);
   padding: 0.25rem 0.75rem;
   font-size: 1.125rem;
   line-height: 1.75rem;

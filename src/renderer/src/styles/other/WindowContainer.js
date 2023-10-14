@@ -6,7 +6,7 @@ const WindowContainer = styled.div`
   background-color: ${(props) =>
     props.theme === "dark"
       ? "var(--color-primary-1)"
-      : "var(--color-primary-4)"};
+      : "var(--color-primary-5)"};
 `;
 
 export default WindowContainer;

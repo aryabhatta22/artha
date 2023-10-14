@@ -23,10 +23,17 @@ const MenuList = styled.ul`
   }
 `;
 
+const OutletWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+`;
+
 const OutletSection = styled.main`
   height: fit-content;
   width: 100%;
   flex: 1 1 auto;
   margin: 0;
 `;
-export { NavMenuLeft, NavMenuRight, MenuList, OutletSection };
+export { NavMenuLeft, NavMenuRight, MenuList, OutletSection, OutletWrapper };
