@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const SideBarWrapper = styled.ul`
@@ -11,13 +12,20 @@ const SideBarWrapper = styled.ul`
 
 const ListElement = styled.li`
   padding: 8px 0px;
+
+  & a.active {
+    color: orange;
+    background: var(--color-primary-4);
+  }
 `;
 
 const SideBar = ({ menuList }) => {
   return (
     <SideBarWrapper>
       {menuList.map((menu, index) => (
-        <ListElement>{menu["menuOption"]}</ListElement>
+        <ListElement key={index}>
+          <NavLink to={menu["link"]}>{menu["menuOption"]}</NavLink>
+        </ListElement>
       ))}
     </SideBarWrapper>
   );

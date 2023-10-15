@@ -28,7 +28,12 @@ const HomePage = () => {
             <DescriptionOutlinedIcon />
             <p className="">View Summary</p>
           </Button>
-          <Button type="dark" onClick={() => navigate("/app/plan/create/jan")}>
+          <Button
+            type="dark"
+            onClick={() =>
+              navigate("/app/monthlyPlan/fixedExpenses?month=Jan&year=2023")
+            }
+          >
             <AddCircleOutlineOutlinedIcon />
             <p>Create Plan</p>
           </Button>

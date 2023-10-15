@@ -35,11 +35,11 @@ const AppLayout = () => {
                   <HomeOutlinedIcon />
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Button>
                   <RefreshOutlinedIcon />
                 </Button>
-              </li>
+              </li> */}
             </MenuList>
           </NavMenuLeft>
           <NavMenuRight>

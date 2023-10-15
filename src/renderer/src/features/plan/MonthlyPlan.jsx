@@ -5,7 +5,7 @@ import Table from "../../ui/Components/Table";
 import { useEffect, useState } from "react";
 import Calender from "../../ui/Components/Calender";
 import moment from "moment/moment";
-import { useOutletContext } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 import { sideMenu } from "../../data/SidemenuList";
 import { tableColumns } from "../../data/TableColumns";
 
@@ -20,17 +20,21 @@ const MonthlyPlanStyleContainer = styled.div`
   padding: 2rem 5rem;
 `;
 
-const columns = tableColumns["fixedExpenses"];
-const rows = [
-  ["1", "2", "3"],
-  ["11", "22", "33"],
+const initialColumns = tableColumns["fixedExpenses"];
+const initialRows = [
+  ["1", "2"],
+  ["11", "22"],
 ];
 
 const MonthlyPlan = () => {
+  // TODO: To be replaced by context
   const [isEditModeOn, setIsEditModeOn] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState(
     moment().format("YYYY-MM"),
   );
+  const [columns, setColumns] = useState(initialColumns);
+  const [rows, setRows] = useState(initialRows);
+
   const { setSidebarMenu } = useOutletContext();
 
   useEffect(() => {
@@ -52,8 +56,7 @@ const MonthlyPlan = () => {
           {isEditModeOn ? "Save" : "Edit"}
         </Button>
       </Row>
-      <Row type="notSpaced"></Row>
-      <Table columns={columns} rows={rows} editTable={isEditModeOn} />
+      <Outlet context={{ columns, rows, isEditModeOn, setRows }} />
     </MonthlyPlanStyleContainer>
   );
 };

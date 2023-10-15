@@ -1,5 +1,6 @@
 - Remove refresh button temporarily
--
+- Add overflow to the window screen
+- Refine side bar selected menu to look better
 
 
 

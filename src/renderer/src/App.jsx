@@ -2,7 +2,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import User from "./features/user/User";
 import Error from "./ui/Error";
-import MonthlyPlan from "./features/plan/MonthlyPlan";
+import {
+  FixedExpenses,
+  LongTermSavings,
+  MonthlyPlan,
+  ShortTermSavings,
+  VariableExpenses,
+} from "./features/plan/MonthlyPlanComponents";
 import Account from "./features/account/Account";
 import AnnualSummary from "./features/stats/AnnualSummary";
 import Graph from "./features/stats/Graph";
@@ -22,6 +28,10 @@ const App = () => {
       errorElement: <Error />,
       children: [
         {
+          index: true,
+          element: <User />,
+        },
+        {
           path: "user",
           element: <User />,
         },
@@ -30,8 +40,30 @@ const App = () => {
           element: <Account />,
         },
         {
-          path: "plan/create/:month",
+          path: "monthlyPlan",
           element: <MonthlyPlan />,
+          children: [
+            {
+              index: true,
+              element: <FixedExpenses />,
+            },
+            {
+              path: "fixedExpenses",
+              element: <FixedExpenses />,
+            },
+            {
+              path: "longTermSavings",
+              element: <LongTermSavings />,
+            },
+            {
+              path: "shortTermSavings",
+              element: <ShortTermSavings />,
+            },
+            {
+              path: "variableExpenses",
+              element: <VariableExpenses />,
+            },
+          ],
         },
         {
           path: "stats/summary/:year",
