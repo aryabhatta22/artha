@@ -3,6 +3,7 @@ import Table from "../../ui/Components/Table";
 import styled from "styled-components";
 import LabelAndInput from "../../ui/Components/LabelAndInput";
 import { useState } from "react";
+import { tableColumns } from "../../data/TableColumns";
 
 const Section = styled.section`
   display: block;
@@ -12,9 +13,18 @@ const Section = styled.section`
 const Span = styled.div`
   margin: 30px 0px;
 `;
+
+const initialColumns = tableColumns["fixedExpenses"];
+const initialRows = [
+  ["1", "2"],
+  ["11", "22"],
+];
+
 const FixedExpenses = () => {
-  const { columns, rows, isEditModeOn, setRows } = useOutletContext();
+  const { isEditModeOn } = useOutletContext();
   const [creditCardValue, setCreditCardValue] = useState(0);
+  const [columns, setColumns] = useState(initialColumns);
+  const [rows, setRows] = useState(initialRows);
   const [savingsSpend, setSavingsSpend] = useState(0);
   const [subscriptions, setSubscriptions] = useState(0);
 
@@ -33,6 +43,7 @@ const FixedExpenses = () => {
           id="creditCard"
           value={creditCardValue}
           setValue={setCreditCardValue}
+          disable={!isEditModeOn}
         />
         <LabelAndInput
           labelText={"Credit Card"}
@@ -40,6 +51,7 @@ const FixedExpenses = () => {
           id="creditCard"
           value={creditCardValue}
           setValue={setCreditCardValue}
+          disable={!isEditModeOn}
         />
         <LabelAndInput
           labelText={"Spend from Savings"}
@@ -47,6 +59,7 @@ const FixedExpenses = () => {
           id="savingsSpend"
           value={savingsSpend}
           setValue={setSavingsSpend}
+          disable={!isEditModeOn}
         />
         <LabelAndInput
           labelText={"Subscriptions"}
@@ -54,6 +67,7 @@ const FixedExpenses = () => {
           id="subscriptions"
           value={subscriptions}
           setValue={setSubscriptions}
+          disable={!isEditModeOn}
         />
       </Span>
     </Section>

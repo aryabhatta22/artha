@@ -8,6 +8,7 @@ import moment from "moment/moment";
 import { Outlet, useOutletContext } from "react-router-dom";
 import { sideMenu } from "../../data/SidemenuList";
 import { tableColumns } from "../../data/TableColumns";
+import LabelAndInput from "../../ui/Components/LabelAndInput";
 
 const MonthlyPlanStyleContainer = styled.div`
   display: flex;
@@ -20,20 +21,13 @@ const MonthlyPlanStyleContainer = styled.div`
   padding: 2rem 5rem;
 `;
 
-const initialColumns = tableColumns["fixedExpenses"];
-const initialRows = [
-  ["1", "2"],
-  ["11", "22"],
-];
-
 const MonthlyPlan = () => {
   // TODO: To be replaced by context
   const [isEditModeOn, setIsEditModeOn] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState(
     moment().format("YYYY-MM"),
   );
-  const [columns, setColumns] = useState(initialColumns);
-  const [rows, setRows] = useState(initialRows);
+  const [income, setIncome] = useState(0);
 
   const { setSidebarMenu } = useOutletContext();
 
@@ -49,6 +43,14 @@ const MonthlyPlan = () => {
           onChange={(e) => setSelectedMonth(e.target.value)}
           max={moment().add("1", "M").format("YYYY-MM")}
         />
+        <LabelAndInput
+          labelText={"Income"}
+          inputType={"number"}
+          id="income"
+          value={income}
+          setValue={setIncome}
+          disable={!isEditModeOn}
+        />
         <Button
           type="dark"
           onClick={() => setIsEditModeOn((isEditModeOn) => !isEditModeOn)}
@@ -56,7 +58,7 @@ const MonthlyPlan = () => {
           {isEditModeOn ? "Save" : "Edit"}
         </Button>
       </Row>
-      <Outlet context={{ columns, rows, isEditModeOn, setRows }} />
+      <Outlet context={{ isEditModeOn }} />
     </MonthlyPlanStyleContainer>
   );
 };

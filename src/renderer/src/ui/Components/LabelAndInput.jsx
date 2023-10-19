@@ -14,6 +14,7 @@ const Span = styled.span`
 const Label = styled.label`
   color: var(--color-primary-1);
   font-weight: 600;
+  text-align: right;
 `;
 
 const Input = styled.input`
@@ -23,8 +24,24 @@ const Input = styled.input`
   color: var(--color-primary-1);
   text-align: center;
   width: 150px;
+
+  &[disabled] {
+    background-color: var(--color-primary-5);
+    /* color: var(--color-green-700); */
+    font-weight: bold;
+    border: none;
+    font-size: 1.25rem;
+    text-align: left;
+  }
 `;
-const LabelAndInput = ({ labelText, inputType, id = "", value, setValue }) => {
+const LabelAndInput = ({
+  labelText,
+  inputType,
+  id = "",
+  value,
+  setValue,
+  disable = false,
+}) => {
   return (
     <Span>
       <Label htmlFor={id}>{labelText}</Label>
@@ -33,6 +50,7 @@ const LabelAndInput = ({ labelText, inputType, id = "", value, setValue }) => {
         type={inputType}
         value={value}
         onChange={(e) => setValue(e.target.value)}
+        disabled={disable}
       />
     </Span>
   );

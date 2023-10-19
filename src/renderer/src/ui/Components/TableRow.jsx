@@ -10,7 +10,13 @@ const RowData = styled.td`
   border-bottom: 1px solid var(--color-primary-2);
 `;
 
-const TableRow = ({ rowData, editRows, setRows, rowNumber }) => {
+const TableRow = ({
+  rowData,
+  editRows,
+  setRows,
+  rowNumber,
+  addOrDeleteRows,
+}) => {
   return (
     <Row>
       {rowData.map((row, i) => (
@@ -30,7 +36,7 @@ const TableRow = ({ rowData, editRows, setRows, rowNumber }) => {
             )
           }
         >
-          <DeleteOutlinedIcon />
+          {addOrDeleteRows && <DeleteOutlinedIcon />}
         </ButtonIcon>
       </RowData>
     </Row>

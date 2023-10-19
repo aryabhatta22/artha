@@ -15,7 +15,13 @@ const TableBody = styled.tbody`
   width: 100%;
 `;
 
-const Table = ({ columns, rows, editTable, setRows }) => {
+const Table = ({
+  columns,
+  rows,
+  editTable,
+  setRows,
+  addOrDeleteRows = true,
+}) => {
   return (
     <>
       <TableContainer>
@@ -33,22 +39,25 @@ const Table = ({ columns, rows, editTable, setRows }) => {
               editRows={editTable}
               setRows={setRows}
               rowNumber={rowNumber}
+              addOrDeleteRows={addOrDeleteRows}
             />
           ))}
         </TableBody>
       </TableContainer>
-      <div>
-        <Button
-          onClick={() =>
-            setRows((currentRows) => [
-              ...currentRows,
-              Array(columns.length).fill(""),
-            ])
-          }
-        >
-          Add Row
-        </Button>
-      </div>
+      {addOrDeleteRows && (
+        <div>
+          <Button
+            onClick={() =>
+              setRows((currentRows) => [
+                ...currentRows,
+                Array(columns.length).fill(""),
+              ])
+            }
+          >
+            Add Row
+          </Button>
+        </div>
+      )}
     </>
   );
 };

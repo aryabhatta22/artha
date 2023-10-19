@@ -6,6 +6,8 @@ const TableHeader = styled.tr`
 
 const Column = styled.th`
   border-bottom: 1px solid var(--color-primary-2);
+  color: var(--color-primary-4);
+  background-color: var(--color-primary-1);
 `;
 const TableColumn = ({ columns }) => {
   return (
