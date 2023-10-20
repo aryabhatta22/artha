@@ -4,7 +4,7 @@ import TableColumn from "./TableColumn";
 import TableRow from "./TableRow";
 
 const TableContainer = styled.table`
-  margin: 30px 0px;
+  margin: 20px 0px;
   font-size: 1rem;
   width: 100%;
 `;
@@ -15,7 +15,12 @@ const TableBody = styled.tbody`
   width: 100%;
 `;
 
+const TableHeading = styled.h3`
+  text-align: left;
+`;
+
 const Table = ({
+  tableTitle,
   columns,
   rows,
   editTable,
@@ -24,6 +29,7 @@ const Table = ({
 }) => {
   return (
     <>
+      {tableTitle && <TableHeading>{tableTitle}</TableHeading>}
       <TableContainer>
         <TableBody>
           {/* Column Data */}
@@ -44,7 +50,7 @@ const Table = ({
           ))}
         </TableBody>
       </TableContainer>
-      {addOrDeleteRows && (
+      {addOrDeleteRows && editTable && (
         <div>
           <Button
             onClick={() =>

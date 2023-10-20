@@ -9,4 +9,6 @@ export const tableColumns = {
     "CPM",
     "Amount Saved",
   ],
+  variableExpensesHigh: ["Purpose", "Amount"],
+  variableExpensesLow: ["Purpose", "Amount"],
 };

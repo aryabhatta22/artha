@@ -7,15 +7,26 @@ const SideBarWrapper = styled.ul`
   width: 20%;
   color: var(--color-grey-0);
   font-weight: 100;
-  padding: 50px 20px;
+  padding: 40px 0px;
 `;
 
 const ListElement = styled.li`
-  padding: 8px 0px;
+  margin: 8px 0px;
+  text-align: center;
 
   & a.active {
-    color: orange;
-    background: var(--color-primary-4);
+    color: var(--color-primary-1);
+    font-weight: bold;
+  }
+  & a.active span {
+    background: var(--color-primary-5);
+  }
+  & a span {
+    padding: 8px;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 `;
 

@@ -36,7 +36,7 @@ const TableRow = ({
             )
           }
         >
-          {addOrDeleteRows && <DeleteOutlinedIcon />}
+          {addOrDeleteRows && editRows && <DeleteOutlinedIcon />}
         </ButtonIcon>
       </RowData>
     </Row>
