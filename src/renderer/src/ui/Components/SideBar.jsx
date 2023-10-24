@@ -28,6 +28,11 @@ const ListElement = styled.li`
     flex-direction: row;
     justify-content: space-evenly;
   }
+
+  &:hover {
+    background: var(--color-primary-4);
+    color: var(--color-primary-1);
+  }
 `;
 
 const SideBar = ({ menuList }) => {

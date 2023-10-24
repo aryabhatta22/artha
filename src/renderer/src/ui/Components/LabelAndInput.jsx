@@ -32,6 +32,7 @@ const Input = styled.input`
     border: none;
     font-size: 1.25rem;
     text-align: left;
+    cursor: default;
   }
 `;
 const LabelAndInput = ({
